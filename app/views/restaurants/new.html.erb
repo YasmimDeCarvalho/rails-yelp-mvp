@@ -1,0 +1,24 @@
+<div class="container py-4">
+
+  <%= link_to "← Back to all restaurants", restaurants_path,
+      class: "btn btn-outline-secondary mb-4" %>
+
+  <div class="card border-0 shadow-sm rounded-4">
+    <div class="card-body p-4">
+
+      <h2 class="fw-bold mb-4">Add a new restaurant</h2>
+
+      <%= simple_form_for @restaurant do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :phone_number %>
+        <%= f.input :category,
+            collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
+
+        <%= f.submit "Add Restaurant", class: "btn btn-primary w-100 mt-3" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
